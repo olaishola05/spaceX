@@ -6,7 +6,7 @@ function Profile() {
   return (
     <div className="profile-main">
       <div className="missions">
-        <h1>My Missions</h1>
+        <h1 className="profile-header">My Missions</h1>
         <ul>
           {missions.map((mission) => (
             <li key={mission}>{mission}</li>
@@ -14,7 +14,7 @@ function Profile() {
         </ul>
       </div>
       <div className="rockets">
-        <h1>My Rockets</h1>
+        <h1 className="profile-header">My Rockets</h1>
         <ul>
           {rockets.map((rocket) => (
             <li key={rocket}>{rocket}</li>
