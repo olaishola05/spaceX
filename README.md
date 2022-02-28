@@ -5,7 +5,7 @@
 > This is a web app called spaceX built with react and makes use of SpaceX API endpoints to render the data to the Dom for selecting a mission or booking a rocket
 
 <br> <br>
-![screenShoot Desktop](https://user-images.githubusercontent.com/58771507/155540877-3f500fbd-2539-4b56-94d0-df6a2fb7434d.png)
+
 
 ## Built With
 
