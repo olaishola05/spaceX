@@ -33,6 +33,11 @@ h1 {
   gap: 1.2em;
 }
 
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
 .nav-links {
   display: flex;
   gap: 1.5em;
@@ -49,4 +54,36 @@ h1 {
 .underline {
   text-decoration: underline;
   text-decoration-color: blue;
+}
+
+/* Profile */
+
+.profile-main {
+  width: 50rem;
+  padding: 20px;
+  display: flex;
+  gap: 1.3rem;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+h1 {
+  color: #818385;
+  margin-bottom: 0.3rem;
+}
+
+.missions,
+.rockets {
+  flex: 1;
+  border-radius: 4px;
+}
+
+ul {
+  border: 1px solid #e9e9e9;
+  list-style: none;
+}
+
+li {
+  border-bottom: 1px solid #e9e9e9;
+  padding: 15px;
 }
