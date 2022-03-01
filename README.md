@@ -1,11 +1,10 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# BookStore
+# SpaceX
 
 > This is a web app called spaceX built with react and makes use of SpaceX API endpoints to render the data to the Dom for selecting a mission or booking a rocket
 
 <br> <br>
-
 
 ## Built With
 

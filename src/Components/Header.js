@@ -27,8 +27,8 @@ function Header() {
                 style={({ isActive }) => ({
                   textDecoration: 'none',
                   margin: '0 10px',
-                  borderBottom: isActive ? 'solid 5px gray' : '',
-                  color: isActive ? 'red' : 'black',
+                  borderBottom: isActive ? 'solid 1px rgb(13, 114, 230)' : '',
+                  color: isActive ? 'red' : 'rgb(13, 114, 230)',
                 })}
               >
                 {link.text}
