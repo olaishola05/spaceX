@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import fetchMissions from 'src/redux/missions/missions';
+import { useDispatch } from 'react-redux';
+import { fetchMissions } from '../redux/missions/missions';
 
 function Missons() {
   const dispatch = useDispatch();
@@ -16,8 +16,6 @@ function Missons() {
     dispatch(fetchMissions());
   }, []);
 
-  const storeData = useSelector((state) => state.missions);
-  console.log(storeData);
   return (
     <div className="wrapper">
       <div className="missions-container">

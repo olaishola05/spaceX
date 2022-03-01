@@ -17,6 +17,15 @@ const fetchFailed = (payload) => ({
   payload,
 });
 
+const getItemsFromResponse = (response) => {
+  const info = [];
+  response.forEach((item) => {
+    const { mission_id, mission_name, description } = item;
+    info.push({ mission_id, mission_name, description });
+  });
+  return info;
+};
+
 export const fetchMissions = () => async (dispatch) => {
   try {
     const response = await axios({
@@ -24,8 +33,7 @@ export const fetchMissions = () => async (dispatch) => {
       url: URL,
     });
 
-    const { mission_id, mission_name, description } = response.data;
-    dispatch(fetchSuccess({ mission_id, mission_name, description }));
+    dispatch(fetchSuccess(getItemsFromResponse(response.data)));
   } catch (err) {
     dispatch(fetchFailed(err.toString()));
   }
