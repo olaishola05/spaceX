@@ -1,8 +1,14 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import logo from '../planet.png';
-import Nav from './Nav';
+// import Nav from './Nav';
 
 function Header() {
+  const links = [
+    { id: 1, path: '/', text: 'Rockets' },
+    { id: 2, path: '/missions', text: 'Missions' },
+    { id: 3, path: '/profile', text: 'Profile' },
+  ];
   return (
     <div className="header">
       <div className="icon-logo">
@@ -11,11 +17,25 @@ function Header() {
         <h1>Sapce Travelers&apos; Hub</h1>
       </div>
 
-      <div className="nav-links">
-        <Nav title="Products" />
-        <Nav title="Missions" />
-        <span>|</span>
-        <Nav title="My Profile" />
+      <div className="nav-linkss">
+        <ul className="nav-links">
+          {links.map((link) => (
+            <li key={link.id}>
+              <NavLink
+                to={link.path}
+                exact="true"
+                style={({ isActive }) => ({
+                  textDecoration: 'none',
+                  margin: '0 10px',
+                  borderBottom: isActive ? 'solid 5px gray' : '',
+                  color: isActive ? 'red' : 'black',
+                })}
+              >
+                {link.text}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
