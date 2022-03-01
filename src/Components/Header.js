@@ -17,7 +17,7 @@ function Header() {
         <h1>Sapce Travelers&apos; Hub</h1>
       </div>
 
-      <div className="nav-linkss">
+      <div>
         <ul className="nav-links">
           {links.map((link) => (
             <li key={link.id}>

@@ -99,6 +99,7 @@ li {
   display: grid;
   grid-template-columns: 150px 500px 200px 150px;
 }
+
 .missions-bar div,
 .missions-data div {
   border: 1px solid #e9e9e9;
