@@ -1,16 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function Profile() {
-  const missions = ['Telstar', 'SES', 'AsiaSat', 'ABS'];
+  const missions = useSelector((state) => state.missions);
+  const filters = missions.filter((mission) => mission.reserved === true);
   const rockets = ['Falcon 9', 'Falcon Heavy', 'Starship'];
+
   return (
     <div className="profile-main">
       <div className="missions">
         <h1 className="profile-header">My Missions</h1>
         <ul>
-          {missions.map((mission) => (
-            <li key={mission} className="list">
-              {mission}
+          {filters.map((mission) => (
+            <li key={mission.mission_id} className="list">
+              {mission.mission_name}
             </li>
           ))}
         </ul>

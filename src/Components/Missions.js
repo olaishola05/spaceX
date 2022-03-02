@@ -1,7 +1,8 @@
-/* eslint-disable max-len */
+/* eslint-disable react/jsx-curly-newline */
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMissions } from '../redux/missions/missions';
+import { fetchMissions, reserveMission } from '../redux/missions/missions';
 
 function Missons() {
   const dispatch = useDispatch();
@@ -11,6 +12,15 @@ function Missons() {
   }, []);
 
   const storeData = useSelector((state) => state.missions);
+
+  const getReserveID = (id) => {
+    dispatch(reserveMission(id));
+  };
+
+  // const removeMission = (id) => {
+  //   dispatch(leaveMission(id));
+  // };
+
   return (
     <div className="wrapper">
       <div className="missions-container">
@@ -30,16 +40,20 @@ function Missons() {
         <ul>
           {storeData.map((mission) => (
             <li className="missions-data" key={mission.mission_id}>
-              <di className="title">{mission.mission_name}</di>
+              <div className="title">{mission.mission_name}</div>
               <div>{mission.description}</div>
               <div className="btn-container">
                 <button type="button" className="memberBtn">
-                  Not a member
+                  {mission.reserved === true ? 'Active Member' : 'Not a member'}
                 </button>
               </div>
               <div className="btn-container">
-                <button type="button" className="missionBtn">
-                  Join Mission
+                <button
+                  type="button"
+                  className="missionBtn"
+                  onClick={() => getReserveID(mission.mission_id)}
+                >
+                  {mission.reserved === true ? 'Leave Mission' : 'Join Mission'}
                 </button>
               </div>
             </li>
