@@ -9,7 +9,9 @@ function Profile() {
         <h1 className="profile-header">My Missions</h1>
         <ul>
           {missions.map((mission) => (
-            <li key={mission}>{mission}</li>
+            <li key={mission} className="list">
+              {mission}
+            </li>
           ))}
         </ul>
       </div>
@@ -17,7 +19,9 @@ function Profile() {
         <h1 className="profile-header">My Rockets</h1>
         <ul>
           {rockets.map((rocket) => (
-            <li key={rocket}>{rocket}</li>
+            <li key={rocket} className="list">
+              {rocket}
+            </li>
           ))}
         </ul>
       </div>
