@@ -23,7 +23,6 @@ function Header() {
             <li key={link.id}>
               <NavLink
                 to={link.path}
-                exact="true"
                 style={({ isActive }) => ({
                   textDecoration: 'none',
                   margin: '0 10px',

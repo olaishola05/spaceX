@@ -8,11 +8,15 @@ import {
 } from '../redux/Rocket/rocketReducer';
 
 function Rockets() {
-  const dispatch = useDispatch();
-
-  useEffect(() => dispatch(fecthRockets()), []);
   const rocketStore = useSelector((state) => state.rocket);
   const { rockets, loading } = rocketStore;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (rockets.length === 0) {
+      dispatch(fecthRockets());
+    }
+  }, []);
 
   const handleUpdateReserve = (id) => {
     dispatch(updateReserveState(id, rockets));

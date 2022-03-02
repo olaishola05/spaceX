@@ -1,7 +1,7 @@
 const FETCH_ROCKECTS_SUCCESS = 'spaceX/Rockect/FETCH_ROCKECTS_SUCCESS';
 const FETCH_ROCKECTS_REQUEST = 'spaceX/Rockect/FETCH_ROCKECTS_REQUEST';
 const FETCH_ROCKECTS_FAILURE = 'spaceX/Rockect/FETCH_ROCKECTS_FAILURE';
-const UPDATE_RESERVE = 'spaceX/Rockect/FUPDATE_RESERVE';
+const UPDATE_RESERVE = 'spaceX/Rockect/UPDATE_RESERVE';
 
 const intialState = {
   loading: false,
@@ -67,7 +67,6 @@ export const fecthRockets = () => async (dispatch) => {
       description: item.description,
       name: item.rocket_name,
       image: item.flickr_images,
-      reserved: false,
     }));
 
     dispatch(fetchRocketSuccess(final));
