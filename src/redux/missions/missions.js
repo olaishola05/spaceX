@@ -65,7 +65,7 @@ const missionReducer = (state = initialState, action) => {
         if (mission.mission_id !== action.payload) {
           return mission;
         }
-        return { ...mission, reserved: true };
+        return { ...mission, reserved: !mission.reserved };
       });
 
     case LEAVE_MISSION:
@@ -73,7 +73,7 @@ const missionReducer = (state = initialState, action) => {
         if (mission.mission_id !== action.payload) {
           return mission;
         }
-        return { ...mission, reserved: false };
+        return { ...mission, reserved: !mission.reserved };
       });
 
     default:
