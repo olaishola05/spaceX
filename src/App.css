@@ -79,11 +79,68 @@ h1 {
 }
 
 ul {
-  border: 1px solid #e9e9e9;
   list-style: none;
 }
 
-li {
-  border-bottom: 1px solid #e9e9e9;
+.list {
+  border: 1px solid #e9e9e9;
   padding: 15px;
+}
+
+/* Missions */
+.wrapper {
+  width: 80rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.missions-bar,
+.missions-data {
+  display: grid;
+  grid-template-columns: 130px 600px 160px 150px;
+}
+
+.missions-bar div,
+.missions-data div {
+  border: 0.1px solid #e9e9e9;
+  padding: 10px;
+}
+
+.missions-bar p {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.missions-data:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.title {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.memberBtn {
+  padding: 5px;
+  display: flex;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #6d757d;
+  font-size: 15px;
+  border: none;
+}
+
+.missionBtn {
+  border: 1px solid #8e9194;
+  padding: 10px 8px;
+  border-radius: 3px;
 }
