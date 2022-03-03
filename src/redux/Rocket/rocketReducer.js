@@ -23,7 +23,7 @@ const fetchRocketsFailure = (payload) => ({
   payload,
 });
 
-const updateReserve = (payload) => ({
+export const updateReserve = (payload) => ({
   type: UPDATE_RESERVE,
   payload,
 });
@@ -50,7 +50,17 @@ const reducerRocker = (state = intialState, action) => {
     case UPDATE_RESERVE:
       return {
         ...state,
-        rockets: [...action.payload],
+        rockets: [
+          ...state.rockets.map((item) => {
+            if (action.payload === item.id) {
+              return {
+                ...item,
+                reserved: !item.reserved,
+              };
+            }
+            return { ...item };
+          }),
+        ],
       };
     default:
       return { ...state };
@@ -74,20 +84,6 @@ export const fecthRockets = () => async (dispatch) => {
     const errorMsg = 'Cant load from API now';
     dispatch(fetchRocketsFailure(errorMsg));
   }
-};
-
-export const updateReserveState = (id, rockets) => (dispatch) => {
-  const newState = rockets.map((item) => {
-    if (id === item.id) {
-      return {
-        ...item,
-        reserved: !item.reserved,
-      };
-    }
-    return { ...item };
-  });
-
-  dispatch(updateReserve(newState));
 };
 
 export default reducerRocker;

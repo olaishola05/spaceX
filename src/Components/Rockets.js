@@ -2,10 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { css } from '@emotion/react';
 import PuffLoader from 'react-spinners/PuffLoader';
-import {
-  fecthRockets,
-  updateReserveState,
-} from '../redux/Rocket/rocketReducer';
+import { fecthRockets, updateReserve } from '../redux/Rocket/rocketReducer';
 
 function Rockets() {
   const rocketStore = useSelector((state) => state.rocket);
@@ -19,7 +16,7 @@ function Rockets() {
   }, []);
 
   const handleUpdateReserve = (id) => {
-    dispatch(updateReserveState(id, rockets));
+    dispatch(updateReserve(id));
   };
 
   const rocketCard = rockets.map((item) => (
