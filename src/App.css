@@ -6,6 +6,10 @@ h1 {
   font-size: 1.5em;
 }
 
+h2 {
+  font-size: 1.3em;
+}
+
 *,
 *::after,
 *::before {
@@ -41,6 +45,8 @@ h1 {
 .nav-links {
   display: flex;
   gap: 1.5em;
+  align-items: center;
+  border: none;
 }
 
 .nav-button {
@@ -105,6 +111,66 @@ ul {
 .missions-data div {
   border: 0.1px solid #e9e9e9;
   padding: 10px;
+}
+
+/* Rocket */
+
+.rocket-card-container {
+  padding: 2em 1.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+.card-rocket {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.3em;
+}
+
+.rocket-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.rocket-info p {
+  line-height: 1.5em;
+  font-size: 1.2em;
+}
+
+.button-rocket-not-reserve,
+.button-rocket-is-reserve {
+  background-color: rgb(13, 114, 230);
+  color: white;
+  border: 1px solid rgb(13, 114, 230);
+  padding: 10px 8px;
+  width: 160px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.button-rocket-is-reserve {
+  background-color: rgba(243, 243, 243, 0.4);
+  color: rgb(155, 153, 153);
+  border: 2px solid rgba(204, 203, 203, 0.8);
+}
+
+.rocket-image {
+  width: 360px;
+  height: 340px;
+  object-fit: cover;
+}
+
+.hide-view {
+  text-align: center;
+  font-weight: bold;
+  background-color: rgb(13, 114, 230);
+  padding: 5px 8px;
+  border-radius: 6px;
+  margin-right: 1em;
+  color: #fff;
+  height: 30px;
 }
 
 .missions-bar p {

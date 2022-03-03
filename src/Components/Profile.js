@@ -2,9 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function Profile() {
+  const rocketStore = useSelector((state) => state.rocket);
+  const { rockets } = rocketStore;
+
+  const rocketReserved = rockets.filter((item) => item.reserved);
+
   const missions = useSelector((state) => state.missions);
   const filters = missions.filter((mission) => mission.reserved === true);
-  const rockets = ['Falcon 9', 'Falcon Heavy', 'Starship'];
 
   return (
     <div className="profile-main">
@@ -21,9 +25,10 @@ function Profile() {
       <div className="rockets">
         <h1 className="profile-header">My Rockets</h1>
         <ul>
-          {rockets.map((rocket) => (
-            <li key={rocket} className="list">
-              {rocket}
+
+          {rocketReserved.map((item) => (
+            <li key={item.id} className="list">
+              {item.name}
             </li>
           ))}
         </ul>
