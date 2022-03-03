@@ -1,51 +1,62 @@
-import React from 'react';
+/* eslint-disable react/jsx-curly-newline */
+
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMissions, reserveMission, leaveMission } from '../redux/missions/missions';
 
 function Missons() {
-  const missions = [
-    {
-      mission: 'spacex',
-      description:
-        'In this activity, your team will prepare a Kanban board with a GitHub project. We prepared a template that you need to copy. All tasks in the template board have assigned workload and a category. Your job will be to split the tasks in a way that gives each member a chance to work with the tasks from all categories and so that the estimated time is divided fairly between all members. In order to copy the Kanban board quickly, you will use a special script prepared for you.',
-    },
-  ];
+  const dispatch = useDispatch();
+
+  const storeData = useSelector((state) => state.missions);
+  useEffect(() => {
+    if (storeData.length === 0) {
+      dispatch(fetchMissions());
+    }
+  }, []);
+
+  const toggleReserve = (id, mission) => {
+    const check = mission.reserved ? dispatch(reserveMission(id)) : dispatch(leaveMission(id));
+    return check;
+  };
+
   return (
     <div className="wrapper">
       <div className="missions-container">
         <div className="missions-bar">
-          <div>Mission</div>
-          <div>Description</div>
-          <div>Status</div>
+          <div>
+            <p>Mission</p>
+          </div>
+          <div>
+            <p>Description</p>
+          </div>
+          <div>
+            <p>Status</p>
+          </div>
           <div />
         </div>
 
-        <div className="missions-data">
-          <div>{missions[0].mission}</div>
-          <div>{missions[0].description}</div>
-          <div>
-            <button type="button">Heloo</button>
-          </div>
-          <div>
-            <button type="button">Heloo</button>
-          </div>
-
-          <div>{missions[0].mission}</div>
-          <div>{missions[0].description}</div>
-          <div>
-            <button type="button">Heloo</button>
-          </div>
-          <div>
-            <button type="button">Heloo</button>
-          </div>
-
-          <div>{missions[0].mission}</div>
-          <div>{missions[0].description}</div>
-          <div>
-            <button type="button">Heloo</button>
-          </div>
-          <div>
-            <button type="button">Heloo</button>
-          </div>
-        </div>
+        <ul>
+          {storeData.map((mission) => (
+            <li className="missions-data" key={mission.mission_id}>
+              <div className="title">{mission.mission_name}</div>
+              <div>{mission.description}</div>
+              <div className="btn-container">
+                <button type="button" className={mission.reserved ? 'activeMember' : 'memberBtn'}>
+                  {mission.reserved ? 'Active Member' : 'Not a member'}
+                </button>
+              </div>
+              <div className="btn-container">
+                <button
+                  type="button"
+                  className={mission.reserved ? 'leaveMission' : 'missionBtn'}
+                  onClick={() => toggleReserve(mission.mission_id, mission)}
+                >
+                  {mission.reserved ? 'Leave Mission' : 'Join Mission'}
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

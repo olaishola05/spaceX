@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../planet.png';
-// import Nav from './Nav';
 
 function Header() {
   const links = [
