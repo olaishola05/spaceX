@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function Profile() {
-
   const rocketStore = useSelector((state) => state.rocket);
   const { rockets } = rocketStore;
 
