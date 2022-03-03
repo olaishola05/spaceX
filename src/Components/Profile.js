@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function Profile() {
+
   const rocketStore = useSelector((state) => state.rocket);
   const { rockets } = rocketStore;
 
@@ -25,6 +26,7 @@ function Profile() {
       <div className="rockets">
         <h1 className="profile-header">My Rockets</h1>
         <ul>
+
           {rocketReserved.map((item) => (
             <li key={item.id} className="list">
               {item.name}
