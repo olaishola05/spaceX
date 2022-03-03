@@ -13,7 +13,7 @@ function Header() {
       <div className="icon-logo">
         <img src={logo} alt="Logo" className="logo" />
 
-        <h1>Sapce Travelers&apos; Hub</h1>
+        <h1>Space Travelers&apos; Hub</h1>
       </div>
 
       <div>
