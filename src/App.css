@@ -127,7 +127,8 @@ ul {
   align-items: center;
 }
 
-.memberBtn {
+.memberBtn,
+.activeMember {
   padding: 5px;
   display: flex;
   text-transform: uppercase;
@@ -143,4 +144,17 @@ ul {
   border: 1px solid #8e9194;
   padding: 10px 8px;
   border-radius: 3px;
+}
+
+.leaveMission {
+  border: 1px solid red;
+  color: red;
+  padding: 10px 8px;
+  border-radius: 4px;
+}
+
+.activeMember {
+  color: white;
+  background-color: #26a3b9;
+  border-radius: 4px;
 }

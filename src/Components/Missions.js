@@ -1,16 +1,24 @@
-/* eslint-disable max-len */
+/* eslint-disable react/jsx-curly-newline */
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMissions } from '../redux/missions/missions';
+import { fetchMissions, reserveMission, leaveMission } from '../redux/missions/missions';
 
 function Missons() {
   const dispatch = useDispatch();
 
+  const storeData = useSelector((state) => state.missions);
   useEffect(() => {
-    dispatch(fetchMissions());
+    if (storeData.length === 0) {
+      dispatch(fetchMissions());
+    }
   }, []);
 
-  const storeData = useSelector((state) => state.missions);
+  const toggleReserve = (id, mission) => {
+    const check = mission.reserved ? dispatch(reserveMission(id)) : dispatch(leaveMission(id));
+    return check;
+  };
+
   return (
     <div className="wrapper">
       <div className="missions-container">
@@ -30,16 +38,20 @@ function Missons() {
         <ul>
           {storeData.map((mission) => (
             <li className="missions-data" key={mission.mission_id}>
-              <di className="title">{mission.mission_name}</di>
+              <div className="title">{mission.mission_name}</div>
               <div>{mission.description}</div>
               <div className="btn-container">
-                <button type="button" className="memberBtn">
-                  Not a member
+                <button type="button" className={mission.reserved ? 'activeMember' : 'memberBtn'}>
+                  {mission.reserved ? 'Active Member' : 'Not a member'}
                 </button>
               </div>
               <div className="btn-container">
-                <button type="button" className="missionBtn">
-                  Join Mission
+                <button
+                  type="button"
+                  className={mission.reserved ? 'leaveMission' : 'missionBtn'}
+                  onClick={() => toggleReserve(mission.mission_id, mission)}
+                >
+                  {mission.reserved ? 'Leave Mission' : 'Join Mission'}
                 </button>
               </div>
             </li>
